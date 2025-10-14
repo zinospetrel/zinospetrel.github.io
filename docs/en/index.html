@@ -315,10 +315,10 @@ function zp_fill_ads() {
     }
   }
   
-  var v_web_lnk = '/ads/' + v_id_left + '.html';
+  var v_web_lnk = '/' + g_lang + '/ads/' + v_id_left + '.html';
   document.getElementById('zp-ad-left-frame').src = v_web_lnk;
 
-  v_web_lnk = '/ads/' + v_id_right + '.html';
+  v_web_lnk = '/' + g_lang + '/ads/' + v_id_right + '.html';
   document.getElementById('zp-ad-right-frame').src = v_web_lnk;
   
   setTimeout('zp_fill_ads()', 1000 * 30);
