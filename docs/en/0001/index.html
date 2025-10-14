@@ -318,6 +318,7 @@ var g_keywords = [];
 var g_latin = true;
 var g_lang = 'en';
 var g_obj = '0001';
+var g_tag_def = 'apk_dl';
   </script>
   <script src="/en/0001/dat/ads.js"></script>
   <script src="/en/0001/dat/open_source.js"></script>
@@ -515,7 +516,7 @@ function zp_tag_load(p_tag) {
 }
     
 function zp_docs_loaded() {
-  zp_tag_load('open_source');
+  zp_tag_load(g_tag_def);
   document.getElementById('zp-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
   zp_fill_ads();
 }
