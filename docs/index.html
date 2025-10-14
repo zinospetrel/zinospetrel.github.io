@@ -325,7 +325,7 @@ function zp_fill_ads() {
 }
 
 function zp_load() {
-  setTimeout('zp_wait_to_load()', 1000 * 30);
+  setTimeout('zp_wait_to_load()', 1000 * 5);
 }
 
 function zp_loading_docs() {
@@ -333,9 +333,9 @@ function zp_loading_docs() {
 }
 
 function zp_loading_docs_common() {
-  console.log("==[ZP]==> Start loading g_docs_common ...");
+  console.log("==[ZP]==> Checking g_docs_common ...");
   if (g_docs_common + '' !== 'false') {
-    console.log("==[ZP]==> g_docs_common is not null ...");
+    console.log("==[ZP]==> g_docs_common is ready to load ...");
     for (var i = 0; i < g_docs_common.length; i++) {
       g_docs.push(g_docs_common[i]);
     }
