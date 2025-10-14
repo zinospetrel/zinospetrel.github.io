@@ -6,7 +6,8 @@
     "link": "https://fptsoftware.com",
     "keyword": "fpt,software",
     "kind": 1,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": ""
   },  
   {
     "id": 1000002,
@@ -15,7 +16,8 @@
     "link": "https://www.cmc.com.vn",
     "keyword": "cmc,corp",
     "kind": 1,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": ""
   },  
   {
     "id": 1000003,
@@ -24,6 +26,7 @@
     "link": "https://www.tmasolutions.vn",
     "keyword": "tma,solutions",
     "kind": 1,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": ""
   }  
 ]
