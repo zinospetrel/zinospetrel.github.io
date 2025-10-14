@@ -418,7 +418,7 @@ function zp_split_terms(p_sentence) {
         v_narr.push(v_tm);
       }
     } else {
-      var v_terms = zp_split_en_jp(wg_to_lower(v_line));
+      var v_terms = zp_split_en_jp(zp_to_lower(v_line));
       for (var j = 0; j < v_terms.length; j++) {
         var v_tm = zp_to_lower(v_terms[j]);
         if (v_narr.indexOf(v_tm) < 0) {
