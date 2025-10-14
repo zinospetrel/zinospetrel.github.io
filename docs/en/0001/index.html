@@ -135,6 +135,40 @@ body {
   font-weight: bold;
 }
 
+.zp-search-item .zp-search-item-tag {
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.zp-search-item .zp-search-item-tag span {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  cursor: hand;  
+
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 10px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 10% 10%;
+  border-image-repeat: no-repeat;
+}
+    
 .zp-ad-left {
   position: absolute;
   width: 1px;
@@ -249,7 +283,7 @@ var g_obj = '0001';
   <script src="/en/0001/dat/shareware.js"></script>
   <script>
 function zp_pick_tag() {
-  var v_tag = prompt('Your tag: ' + g_all_tags);
+  var v_tag = prompt('Your tag: [' + g_all_tags + ']');
   if (v_tag + '' == 'undefined') return;
   if (g_all_tags.indexOf(v_tag) < 0) {
     alert('Tag [ ' + v_tag + ' ] is not found!');
