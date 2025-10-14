@@ -1,15 +1,670 @@
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>Zino's Petrel - Softwares in USB drives!</title>
   <style>
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  color: white;
+  background: url('/img/bg-staggered.png');
+}
+
+.wg_page {
+  width: 640px;
+  min-height: 800px;
+  margin: 10px auto 10px auto;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.wg-hd-search-form {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  white-space: pre-wrap;
+}
+
+.wg-text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  
+  margin-top: 5px;
+  
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 15px;
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 0% 10% 10%;
+  border-image-repeat: no-repeat;
+}
+
+.wg-button {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  cursor: hand;  
+
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 10px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 10% 10%;
+  border-image-repeat: no-repeat;
+}
+
+.wg-hd-search-results {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  white-space: pre-wrap;
+  margin-top: 20px;
+}
+
+.wg-search-item {
+  padding-bottom: 20px;
+}
+
+.wg-search-item .wg-search-item-desc {
+  padding-bottom: 5px;
+}
     
+.wg-search-item .wg-search-item-title {
+  //padding-bottom: 5px;
+  font-weight: bold;
+  
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 5px;
+  
+  outline: dotted 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 10px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 0% 10%;
+  border-image-repeat: no-repeat;  
+}
+
+.wg-search-item .wg-search-item-updated {
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.wg-ad-left {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+.wg-ad-left .wg-ad-left-inner {
+  width: 121px;
+  height: 601px;
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  left: -145px;
+}
+
+.wg-ad-120x600 {
+  width: 122px;
+  height: 602px;
+  border: solid 1px gainsboro;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.wg-ad-right {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.wg-ad-right .wg-ad-right-inner {
+  width: 121px;
+  height: 601px;
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  left: 650px;
+}
+
+.wg-ad-left-frame {
+  width: 120px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.wg-ad-right-frame {
+  width: 120px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.wg-titlebar-cover {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
+.wg-titlebar span {
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  color: black;
+  width: 300px;
+  display: block;
+}
+
+.wg-titlebar-inner {
+  width: 650px;
+  height: 20px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border-bottom: solid 1px black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wg-titlebar {
+  width: 99%;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: none;
+  border-left: none;
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 6 2 6 2 fill;
+  border-image-repeat: round;
+  height: 13px;
+  line-height: 13px;
+}
+
   </style>
   <script>
-function zp_load() {
-  location = 'https://tinyurl.com/zinospetrel2';
+var g_docs = [
+  {
+    "id": 1,
+    "title": "Ubuntu - Enterprise Open Source and Linux",
+    "description": "Ubuntu is a Linux distribution based on Debian and composed primarily of free and open-source software. Developed by the British company Canonical and a community of contributors under a meritocratic governance model, Ubuntu is released in multiple official editions: Desktop, Server, and Core for IoT and robotic devices. Ubuntu is published on a six-month release cycle, with long-term support (LTS) versions issued every two years.  Canonical provides security updates and support until each release reaches its designated end-of-life (EOL), with optional extended support available through the Ubuntu Pro and Expanded Security Maintenance (ESM) services. As of June 2025, the latest stable release is 25.04 (\"Plucky Puffin\"), and the current LTS release is 24.04 (\"Noble Numbat\"). Ubuntu can be installed directly on hardware or run within a virtual machine. It is widely used for cloud computing, with integration support for platforms such as OpenStack. It is also one of the most popular Linux distributions for general desktop use, supported by extensive online communities such as Ask Ubuntu, and has spawned numerous community-maintained variants. The name \"Ubuntu\" comes from the Nguni philosophy of ubuntu, which translates roughly as \"humanity to others\" or \"I am what I am because of who we all are\".",
+    "link": "https://ubuntu.com",
+    "keyword": "ubuntu,linux",
+    "kind": 0,
+    "updated": "2025.10.02"
+  },
+  {
+    "id": 2,
+    "title": "The GNU Image Manipulation Program (GIMP)",
+    "description": "GIMP is a free and open-source raster graphics editor. It is commonly used for photo retouching, image editing, free-hand drawing, and converting between different image file formats. GIMP is freely available on Windows, Linux and macOS. It is licensed under the GNU General Public License (GPL 3.0 or later). The project is supported by a community of volunteers. Users are encouraged to contribute. GIMP supports plugins and scripting, allowing users to extend its features and automate tasks. While it is not primarily designed for drawing, some artists and creators still use it for that purpose.",
+    "link": "https://www.gimp.org",
+    "keyword": "gimp",
+    "kind": 0,
+    "updated": "2025.10.02"
+  },
+  {
+    "id": 3,
+    "title": "LibreOffice - Free and private office suite - Based on OpenOffice - Compatible with Microsoft",
+    "description": "LibreOffice is a free and open-source office productivity software suite developed by The Document Foundation (TDF). It was created in 2010 as a fork of OpenOffice.org, itself a successor to StarOffice. The suite includes applications for word processing (Writer), spreadsheets (Calc), presentations (Impress), vector graphics (Draw), database management (Base), and formula editing (Math). It supports the OpenDocument format and is compatible with other major formats, including those used by Microsoft Office. LibreOffice is available for Windows, macOS, and is the default office suite in many Linux distributions, and there are community builds for other platforms. Ecosystem partner Collabora uses LibreOffice as upstream code to provide a web-based suite branded as Collabora Online, along with apps for platforms not officially supported by LibreOffice, including Android, ChromeOS, iOS and iPadOS.",
+    "link": "https://www.libreoffice.org",
+    "keyword": "office",
+    "kind": 0,
+    "updated": "2025.10.02"
+  },  
+  {
+    "id": 1000001,
+    "title": "FPT Software - Leading in Digital transformation & IT Consulting services",
+    "description": "FPT Software Company Limited is a global IT services provider headquartered in Hanoi, Vietnam, being the core subsidiary of the FPT Corporation. As of 2024, the company reached US$2.47 billion in revenue and more than 54,000 core employees across 30 countries.",
+    "link": "https://fptsoftware.com",
+    "keyword": "fpt,software",
+    "kind": 1,
+    "updated": "2025.10.02"
+  },  
+  {
+    "id": 1000002,
+    "title": "CMC CORP - Aspire to Inspire the Digital World",
+    "description": "CMC is the second-largest technology corporation in Vietnam. Established in 1993, CMC has affirmed its position in the Vietnam market and many countries around the world through three key business activities: Technology & Solution Division (Technology & Solution), International Business (Global Business), Telecommunications Service Division (Telecommunications).",
+    "link": "https://www.cmc.com.vn",
+    "keyword": "cmc,corp",
+    "kind": 1,
+    "updated": "2025.10.02"
+  },  
+  {
+    "id": 1000003,
+    "title": "TMA Solutions",
+    "description": "Established in 1997, TMA Solutions stands out as one of the premier Vietnam software outsourcing companies. We have been providing various services, especially agile software outsourcing services to clients, our highly skilled engineers are dedicated to delivering exceptional IT outsourcing solutions.",
+    "link": "https://www.tmasolutions.vn",
+    "keyword": "tma,solutions",
+    "kind": 1,
+    "updated": "2025.10.02"
+  }  
+];
+
+var g_dict_docs = {};
+var g_index_docs = {};
+var g_keywords = [];
+var g_latin = true;
+var g_lang = 'en';
+
+function wg_to_lower_vi(p_str) {
+  var v_upper_table = ['Á', 'À', 'Ả', 'Ã', 'Ạ', 'Ă', 'Ắ', 'Ằ', 'Ẳ', 'Ẵ', 'Ặ', 'Â', 'Ấ', 'Ầ', 'Ẩ', 'Ẫ', 'Ậ', 'Ô', 'Ố', 'Ồ', 'Ổ', 'Ỗ', 'Ơ', 'Ớ', 'Ờ', 'Ở', 'Ỡ', 'Ợ', 'Ó', 'Ò', 'Ỏ', 'Õ', 'Ọ', 'É', 'È', 'Ẻ', 'Ẽ', 'Ẹ', 'Ê', 'Ế', 'Ề', 'Ể', 'Ễ', 'Ệ', 'Ú', 'Ù', 'Ủ', 'Ũ', 'Ụ', 'Ư', 'Ứ', 'Ừ', 'Ử', 'Ữ', 'Ự', 'Í', 'Ì', 'Ỉ', 'Ĩ', 'Ị', 'Ý', 'Ỳ', 'Ỷ', 'Ỹ', 'Ỵ', 'Đ'];
+  var v_lower_table = ['á', 'à', 'ả', 'ã', 'ạ', 'ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ', 'â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ', 'ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ', 'ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ', 'ó', 'ò', 'ỏ', 'õ', 'ọ', 'é', 'è', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ế', 'ề', 'ể', 'ễ', 'ệ', 'ú', 'ù', 'ủ', 'ũ', 'ụ', 'ư', 'ứ', 'ừ', 'ử', 'ữ', 'ự', 'í', 'ì', 'ỉ', 'ĩ', 'ị', 'ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ', 'đ'];
+  var v_lower = p_str.toLowerCase();
+  if (v_upper_table.length == v_lower_table.length) {
+    for (var i = 0; i < v_upper_table.length; i++) {
+      var v_u = v_upper_table[i];
+      var v_l = v_lower_table[i];
+      v_lower = v_lower.replaceAll(v_u, v_l);
+    }
+    return v_lower;
+  } else {
+    console.log('==[ZP]==> Lower & upper table does not match!');
+    return v_lower;
+  }
+}
+
+function wg_to_lower_ja(p_str) {
+  var v_upper_table = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var v_lower_table = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var v_lower = p_str.toLowerCase();
+  if (v_upper_table.length == v_lower_table.length) {
+    for (var i = 0; i < v_upper_table.length; i++) {
+      var v_u = v_upper_table[i];
+      var v_l = v_lower_table[i];
+      v_lower = v_lower.replaceAll(v_u, v_l);
+    }
+    return v_lower;
+  } else {
+    console.log('==[ZP]==> Lower & upper table does not match!');
+    return v_lower;
+  }
+}
+
+function wg_to_lower(p_str) {
+  if (g_lang == 'vi') {
+    return wg_to_lower_vi(p_str);
+  } else if (g_lang == 'ja') {
+    return wg_to_lower_ja(p_str);
+  } else {
+    return p_str.toLowerCase();
+  }
+}
+
+function wg_rand_range(p_min, p_max) {
+  return Math.round(Math.random() * (p_max - p_min) + p_min);
+}
+
+function wg_rand_kw() {
+  var v_idx = wg_rand_range(0, g_keywords.length - 1);
+  return g_keywords[v_idx];
+}
+
+function wg_fill_ads() {
+  var v_kw_left = wg_rand_kw();
+  var v_rsl = wg_do_find(v_kw_left, -1);
+  var v_id_left = -1;
+  if (v_rsl.length > 0) {
+    v_id_left = v_rsl[0]['id'];
+  }
+  while (v_id_left < 0) {
+    v_kw_left = wg_rand_kw();
+    v_rsl = wg_do_find(v_kw_left, -1);
+    if (v_rsl.length > 0) {
+      v_id_left = v_rsl[0]['id'];
+    }
+  }
+  
+  var v_kw_right = wg_rand_kw();
+  v_rsl = wg_do_find(v_kw_right, -1);
+  var v_id_right = -1;
+  if (v_rsl.length > 0) {
+    v_id_right = v_rsl[0]['id'];
+  }
+  while (v_id_right < 0 || v_id_left == v_id_right) {
+    v_kw_right = wg_rand_kw();
+    v_rsl = wg_do_find(v_kw_right, -1);
+    if (v_rsl.length > 0) {
+      v_id_right = v_rsl[0]['id'];
+    }
+  }
+  
+  var v_web_lnk = '/ads/' + v_id_left + '.html';
+  document.getElementById('wg-ad-left-frame').src = v_web_lnk;
+
+  v_web_lnk = '/ads/' + v_id_right + '.html';
+  document.getElementById('wg-ad-right-frame').src = v_web_lnk;
+  
+  setTimeout('wg_fill_ads()', 1000 * 30);
+}
+
+function wg_load() {
+  wg_build_docs();
+  document.getElementById('wg-query').addEventListener('keydown', (event) => { wg_keyword_onchange(event); });
+  wg_fill_ads();
+}
+
+function wg_split_en_jp(p_term) {
+  var v_rs = [p_term];
+  var v_echars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var v_term = p_term;
+  for (var i = 0; i < v_echars.length; i++) {
+    var v_ec = v_echars.substring(i, i+1);
+    v_term = v_term.replaceAll(v_ec + '', '');
+  }
+  for (var i = 0; i < v_term.length; i++) {
+    var v_c = v_term.substring(i, i+1);
+    if (i == v_term.length - 1) {
+      v_c = v_term.substring(i);
+    }
+    v_c = v_c.trim();
+    if (v_c == '') continue;
+    if ((v_c + '').length > 1) {
+      var v_term_2 = v_c + '';
+      for (var i = 0; i < v_term_2.length; i++) {
+        var v_c = v_term_2.substring(i, i+1);
+        if (i == v_term_2.length - 1) {
+          v_c = v_term_2.substring(i);
+        }
+        v_c = v_c.trim();
+        if (v_c == '') continue;
+        v_rs.push(v_c);
+      }
+    } else {
+      v_rs.push(v_c);
+    }
+  }
+  return v_rs;
+}
+    
+function wg_split_terms(p_sentence) {
+  var v_sent = p_sentence + '';
+  var v_chars = [',', '.', '<', '>', '?', '/', ':', ';', '"', "'", '{', '[', '}', ']', '|', '\\', "~", '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '='];
+  if (g_latin == false) {
+    var v_sent_o = v_sent;
+    v_sent = '';
+    var v_latin = false;
+    var v_abc = 'abcdefghijklmnopqrstuvwxyz0123456789、。()・（）、＆。、、';
+    for (var i = 0; i < v_sent_o.length; i++) {
+      var v_c = v_sent_o.substring(i, i+1);
+      if (v_abc.indexOf(v_c.toLowerCase()) >= 0) {
+        if (v_latin == false) {
+          v_sent = v_sent + ' ';
+        }
+        v_sent = v_sent + v_c;
+        v_latin = true;
+      } else {
+        if (v_latin == true) {
+          v_sent = v_sent + ' ';
+        }
+        v_sent = v_sent + v_c;
+        v_latin = false;
+      }
+    }
+  }
+  for (var i = 0; i < v_chars.length; i++) {
+    v_sent = v_sent.replaceAll(v_chars[i] + '', ' ');
+  }
+  var v_arr = v_sent.split(' ');
+  var v_narr = [];
+  for (var i = 0; i < v_arr.length; i++) {
+    var v_line = v_arr[i].trim();
+    if (v_line == '') continue;
+    if (g_latin) {
+      var v_tm = wg_to_lower(v_line);
+      if (v_narr.indexOf(v_tm) < 0) {
+        v_narr.push(v_tm);
+      }
+    } else {
+      var v_terms = wg_split_en_jp(wg_to_lower(v_line));
+      for (var j = 0; j < v_terms.length; j++) {
+        var v_tm = wg_to_lower(v_terms[j]);
+        if (v_narr.indexOf(v_tm) < 0) {
+          v_narr.push(v_tm);
+        }
+      }
+    }
+  }
+  return v_narr;
+}
+
+function wg_build_index(p_sentence, p_id) {
+  var v_terms = wg_split_terms(p_sentence);
+  for (var i = 0; i < v_terms.length; i++) {
+    var v_tm = v_terms[i];
+    if (g_index_docs[v_tm] + '' === 'undefined') {
+      g_index_docs[v_tm] = [p_id];
+    } else {
+      var v_iarr = g_index_docs[v_tm];
+      if (v_iarr.indexOf(p_id) < 0) {
+        v_iarr.push(p_id);
+      }
+      g_index_docs[v_tm] = v_iarr;
+    }
+  }
+}
+
+function wg_build_docs() {
+  for (var i = 0; i < g_docs.length; i++) {
+    g_dict_docs[g_docs[i]['id']] = g_docs[i];
+    var v_title = wg_to_lower(g_docs[i]['title']);
+    wg_build_index(v_title, g_docs[i]['id']);
+    var v_desc = wg_to_lower(g_docs[i]['description']);
+    wg_build_index(v_desc, g_docs[i]['id']);
+    var v_keyword_str = wg_to_lower(g_docs[i]['keyword']);
+    var v_keyword_lst = v_keyword_str.split(',');
+    for (var j = 0; j < v_keyword_lst.length; j++) {
+      v_kw = v_keyword_lst[j].trim();
+      if (g_keywords.indexOf(v_kw) < 0) {
+        g_keywords.push(v_kw);
+      }
+    }
+  } 
+  g_keywords.sort();
+}
+
+function wg_do_find_terms(p_terms) {
+  var v_ids = [];
+  var v_nids = [];
+  for (var i = 0; i < p_terms.length; i++) {
+    var v_tm = p_terms[i];
+    if (g_index_docs[v_tm] + '' !== 'undefined') {
+      var v_cids = g_index_docs[v_tm];
+      if (v_ids.length == 0) {
+        for (var j = 0; j < v_cids.length; j++) {
+          v_ids.push(v_cids[j]);
+        }
+      } else {
+        v_nids = v_ids;
+        v_ids = [];
+        for (var j = 0; j < v_cids.length; j++) {
+          var v_tid = v_cids[j];
+          if (v_nids.indexOf(v_tid) >= 0) {
+            v_ids.push(v_tid);
+          }
+        }
+      }
+    }
+  }
+  return v_ids;
+}
+
+function wg_get_all_terms_fixed(p_terms) {
+  var v_terms_list = [];
+  var v_sz = p_terms.length;
+  var v_used = [];
+  for (var i = 0; i < v_sz; i++) {
+    v_terms_list.push([p_terms[i]]);
+    var v_lterms = [p_terms[i]];
+    for (var j = 0; j < v_sz; j++) {
+      if (j <= i) continue;
+      v_lterms.push(p_terms[j]);
+      if (j < v_sz - 1) {
+        var v_nterms = [];
+        for (var k = 0; k < v_lterms.length; k++) {
+          v_nterms.push(v_lterms[k]);
+        }
+        v_terms_list.push(v_nterms);
+      }
+    }
+    if (v_lterms.length == 1 && i == v_sz - 1) {
+      var debug = '';
+    } else {
+      v_terms_list.push(v_lterms);
+    }
+  }
+  v_terms_list.sort((a, b) => b.length - a.length);
+  return v_terms_list;
+}
+
+function wg_do_find(p_query, p_kind) {
+  var v_terms = wg_split_terms(p_query);
+  var v_ids = [];
+  var v_terms_list = wg_get_all_terms_fixed(v_terms);
+  for (var i = 0; i < v_terms_list.length; i++) {
+    var v_lterms = v_terms_list[i];
+    var v_tids = wg_do_find_terms(v_lterms);
+    for (var j = 0; j < v_tids.length; j++) {
+      var v_tid = v_tids[j];
+      if (v_ids.indexOf(v_tid) < 0) {
+        v_ids.push(v_tid);
+      }
+    }
+  }
+
+  var v_rsl = [];
+  for (var i = 0; i < v_ids.length; i++) {
+    var v_tid = v_ids[i];
+    if (g_dict_docs[v_tid] + '' !== 'undefined') {
+      if (p_kind < 0) {
+        v_rsl.push(g_dict_docs[v_tid]);
+      } else if (p_kind == g_dict_docs[v_tid]['kind']) {
+        v_rsl.push(g_dict_docs[v_tid]);
+      }
+    }
+  }
+  return v_rsl;
+}
+
+function wg_find() {
+  var v_query = wg_to_lower(document.getElementById('wg-query').value);
+  if (v_query.length == 0) {
+    wg_show_all();
+    return;
+  }
+  var v_rsl = wg_do_find(v_query, 0);
+  var v_html = '';
+  for (var i = 0; i < v_rsl.length; i++) {
+    var v_it = v_rsl[i];
+    var v_no = i + 1;
+    var v_et = '<div class="wg-search-item"><div class="wg-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="wg-search-item-desc">' + v_it['description'] + '</div><div class="wg-search-item-updated">' + v_it['updated'] + '</div></div>';
+    v_html += v_et;
+  }
+  document.getElementById('wg-hd-search-results').innerHTML = v_html + wg_powered_google_translate();
+}
+
+function wg_show_all() {
+  var v_rsl = [];
+  for (var i = 0; i < g_docs.length; i++) {
+    if (g_docs[i]['kind'] != 0) continue;
+    v_rsl.push(g_docs[i]);
+  }
+  var v_html = '';
+  for (var i = 0; i < v_rsl.length; i++) {
+    var v_it = v_rsl[i];
+    var v_no = i + 1;
+    if (v_it['kind'] != 0) continue;
+    var v_et = '<div class="wg-search-item"><div class="wg-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="wg-search-item-desc">' + v_it['description'] + '</div><div class="wg-search-item-updated">' + v_it['updated'] + '</div></div>';
+    v_html += v_et;
+  }
+  document.getElementById('wg-hd-search-results').innerHTML = v_html + wg_powered_google_translate();
+}
+
+var g_used_change = '_!#$';
+
+function wg_keyword_onchange(event) {
+  var v_el = document.getElementById('wg-query');
+  var v_cur_kw = wg_to_lower(v_el.value + event.key);
+  if (v_cur_kw.length == 0) return true;
+  if (g_used_change.length == 0 || v_cur_kw == g_used_change) {
+    return;
+  }
+  g_used_change = v_cur_kw;
+  for (var i = 0; i < g_keywords.length; i++) {
+    v_sug_kw = g_keywords[i];
+    if (v_sug_kw.indexOf(v_cur_kw) == 0) {
+      v_el.value = v_sug_kw;
+      if (event.preventDefault) event.preventDefault();
+      return false;
+    }
+  }
+  return true;
+}
+
+function wg_powered_google_translate() {
+  if (g_lang == 'en') return '';
+  return '<div class="wg-powered-google-translate">Powered by Google Translate</div>';
 }
   </script>
 </head>
-<body onload="zp_load();">
+<body onload="wg_load()">
+  <div class="wg_page"><div class="wg-ad-left"><div class="wg-ad-left-inner"><div id="wg-ad-left" class="wg-ad-120x600"><iframe id="wg-ad-left-frame" class="wg-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="wg-ad-right"><div class="wg-ad-right-inner"><div id="wg-ad-right" class="wg-ad-120x600"><iframe class="wg-ad-right-frame" id="wg-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="wg-titlebar-cover"><div class="wg-titlebar-inner"><div class="wg-titlebar"><span>Advertisement Portal</span></div></div></div><div style="height: 20px;">&nbsp;</div>===================================|
+         _                         | o You need to use all additional storage?
+ __ __ _(_)__ _ ___ ___ _ _  ╋╋┏┓┓ |   
+ \ V  V / / _` / -_) _ \ ' \ ┃┃┃┫┃ |  > sudo mkdir -p /wigeon_ad
+  \_/\_/|_\__, \___\___/_||_|╋╋┗┛┻ |  > sudo mount -t ext4 /dev/sdb5 /wigeon_ad
+          |___/                    |  > sudo /wigeon_ad/cleanup
+===================================| -------------------------------------------
+       Advertisement Portal        | Data from <a href="https://en.wikipedia.org" target="_blank">Wikipedia</a> & websites of softwares
+===================================| -------------------------------------------
+<div class="wg-hd-search-form">
+ + Keyword:
+<input id="wg-query" type="text" class="wg-text" style="width: 500px" />
+
+<input type="button" class="wg-button" value="Search" style="width: 75px" onclick="wg_find();" />
+</div>
+<div id="wg-hd-search-results" class="wg-hd-search-results">
+</div>
+
+  
+  </div>
 </body>
 </html>
