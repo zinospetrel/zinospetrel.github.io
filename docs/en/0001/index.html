@@ -121,13 +121,13 @@ body {
   border-image-repeat: no-repeat;  
 }
 
-.zp-search-item .wg-search-item-updated {
+.zp-search-item .zp-search-item-updated {
   border-top: dotted 1px gainsboro;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-.zp-search-item .wg-search-item-price {
+.zp-search-item .zp-search-item-price {
   border-top: dotted 1px gainsboro;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -651,7 +651,7 @@ function zp_find() {
     if (v_price == '') {
       v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     } else {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '<div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     }
     v_html += v_et;
   }
@@ -674,7 +674,7 @@ function zp_show_all() {
     if (v_price == '') {
       v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     } else {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '<div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     }
     v_html += v_et;
   }
