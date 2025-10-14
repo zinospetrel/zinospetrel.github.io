@@ -342,7 +342,7 @@ function zp_loading_docs_common() {
 function zp_wait_to_load() {
   zp_loading_docs()
   zp_build_docs();
-  document.getElementById('wg-query').addEventListener('keydown', (event) => { wg_keyword_onchange(event); });
+  document.getElementById('wg-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
   zp_fill_ads();
 }
 
