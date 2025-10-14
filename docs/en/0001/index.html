@@ -285,7 +285,7 @@ var g_obj = '0001';
   <script>
 function zp_pick_tag() {
   var v_tag = prompt('Your tag: [' + g_all_tags + ']');
-  if (v_tag + '' == 'undefined') return;
+  if (v_tag + '' == 'undefined' || v_tag + '' == 'null') return;
   if (g_all_tags.indexOf(v_tag) < 0) {
     alert('Tag [ ' + v_tag + ' ] is not found!');
     return;
