@@ -224,6 +224,7 @@ body {
   <script>
 var g_docs_ads = false;
 var g_docs_open_source = false;
+var g_all_docs = [];
 var g_docs = [];
 
 var g_dict_docs = {};
@@ -336,11 +337,14 @@ function zp_loading_docs() {
 }
 
 function zp_loading_docs_ads() {
+  var v_tag = 'ads';
   console.log("==[ZP]==> Checking g_docs_ads ...");
   if (g_docs_ads + '' !== 'false') {
     console.log("==[ZP]==> g_docs_ads is ready to load ...");
     for (var i = 0; i < g_docs_ads.length; i++) {
-      g_docs.push(g_docs_ads[i]);
+      var v_item = g_docs_ads[i];
+      v_item['tag'] = v_tag;
+      g_all_docs.push(v_item);
     }
     zp_loading_docs_open_source();
   } else {
@@ -349,11 +353,14 @@ function zp_loading_docs_ads() {
 }
 
 function zp_loading_docs_open_source() {
+  var v_tag = 'open_source';
   console.log("==[ZP]==> Checking g_docs_open_source ...");
   if (g_docs_open_source + '' !== 'false') {
     console.log("==[ZP]==> g_docs_open_source is ready to load ...");
     for (var i = 0; i < g_docs_open_source.length; i++) {
-      g_docs.push(g_docs_open_source[i]);
+      var v_item = g_docs_open_source[i];
+      v_item['tag'] = v_tag;
+      g_all_docs.push(v_item);
     }
     zp_docs_loaded();
   } else {
@@ -361,8 +368,24 @@ function zp_loading_docs_open_source() {
   }
 }
 
-function zp_docs_loaded() {
+function zp_tag_load(p_tag) {
+  var v_docs = [];
+  for (var i = 0; i < g_all_docs.length; i++) {
+    var v_item = g_all_docs[i];
+    if (v_item['tag'] != p_tag) continue;
+    v_docs.push(v_item);
+  }
+  for (var i = 0; i < g_all_docs.length; i++) {
+    var v_item = g_all_docs[i];
+    if (v_item['tag'] != 'ads') continue;
+    v_docs.push(v_item);
+  }
+  g_docs = v_docs;
   zp_build_docs();
+}
+    
+function zp_docs_loaded() {
+  zp_tag_load('open_source');
   document.getElementById('zp-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
   zp_fill_ads();
 }
@@ -472,6 +495,9 @@ function zp_build_index(p_sentence, p_id) {
 }
 
 function zp_build_docs() {
+  g_dict_docs = {};
+  g_index_docs = {};
+  g_keywords = [];
   for (var i = 0; i < g_docs.length; i++) {
     g_dict_docs[g_docs[i]['id']] = g_docs[i];
     var v_title = zp_to_lower(g_docs[i]['title']);
@@ -645,7 +671,7 @@ function zp_pick_language() {
   </script>
 </head>
 <body onload="zp_load()">
-  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares you may need!</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Pick Object" onclick="zp_pick_object()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 350px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
+  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares you may need!</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Object" onclick="zp_pick_object()" >&nbsp;<input type="button" class="zp-button" value="Tag" onclick="zp_pick_tag()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 350px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
   _____          _      ___     _           _ 	
  |_  (_)_ _  ___( )___ | _ \___| |_ _ _ ___| |	
   / /| | ' \/ _ \/(_-< |  _/ -_)  _| '_/ -_) |	
