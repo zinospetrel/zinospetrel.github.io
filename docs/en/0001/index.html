@@ -127,6 +127,14 @@ body {
   padding-bottom: 5px;
 }
 
+.zp-search-item .wg-search-item-price {
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: red;
+  font-weight: bold;
+}
+
 .zp-ad-left {
   position: absolute;
   width: 1px;
@@ -639,7 +647,12 @@ function zp_find() {
   for (var i = 0; i < v_rsl.length; i++) {
     var v_it = v_rsl[i];
     var v_no = i + 1;
-    var v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    var v_et = '';
+    if (v_price == '') {
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    } else {
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '<div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    }
     v_html += v_et;
   }
   document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
@@ -656,7 +669,13 @@ function zp_show_all() {
     var v_it = v_rsl[i];
     var v_no = i + 1;
     if (v_it['kind'] != 0) continue;
-    var v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    var v_price = v_it['price'];
+    var v_et = '';
+    if (v_price == '') {
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    } else {
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '<div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+    }
     v_html += v_et;
   }
   document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
