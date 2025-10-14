@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>Zino's Petrel - Softwares in USB drives!</title>
+  <title>Zino's Petrel - Vending Machines Near You</title>
   <style>
 body {
   margin: 0px;
@@ -617,18 +617,26 @@ function zp_powered_google_translate() {
   if (g_lang == 'en') return '';
   return '<div class="zp-powered-google-translate">Powered by Google Translate</div>';
 }
+
+function zp_pick_object() {
+  var v_obj = prompt("Your object code?");
+  location = "https://zinospetrel.github.io/" + g_lang + '/' + v_obj + '/';
+}
+
+function zp_pick_language() {
+  var v_lang = prompt("Your language code?");
+  location = "https://zinospetrel.github.io/" + v_lang + '/' + g_obj + '/';
+}
   </script>
 </head>
 <body onload="zp_load()">
-  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares in USB drives!</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Pick Object" onclick="zp_pick_object()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 350px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
+  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Vending Machines Near You</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Pick Object" onclick="zp_pick_object()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 350px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
   _____          _      ___     _           _ 	
  |_  (_)_ _  ___( )___ | _ \___| |_ _ _ ___| |	
   / /| | ' \/ _ \/(_-< |  _/ -_)  _| '_/ -_) |	
  /___|_|_||_\___/ /__/ |_| \___|\__|_| \___|_|	
 ==============================================	
-          Softwares in USB drives!	
-     ------------------------------------	
-     Legally, portable & weekly changing.	
+          Vending Machines Near You	
 ==============================================	
 <div id="zp-hd-search-results" class="zp-hd-search-results">
 </div>
