@@ -304,7 +304,7 @@ body {
 
   </style>
   <script>
-var g_all_tags = ['open_source', 'shareware'];
+var g_all_tags = ['open_source', 'shareware', 'apk_dl'];
 var g_docs_ads = false;
 var g_docs_open_source = false;
 var g_docs_shareware = false;
@@ -321,6 +321,7 @@ var g_obj = '0001';
   <script src="/en/0001/dat/ads.js"></script>
   <script src="/en/0001/dat/open_source.js"></script>
   <script src="/en/0001/dat/shareware.js"></script>
+  <script src="/en/0001/dat/apk_dl.js"></script>
   <script>
 function zp_pick_tag() {
   var v_tag = prompt('Your tag: [' + g_all_tags + ']');
@@ -473,9 +474,25 @@ function zp_loading_docs_shareware() {
       v_item['tag'] = v_tag;
       g_all_docs.push(v_item);
     }
-    zp_docs_loaded();
+    zp_loading_docs_apk_dl();
   } else {
     setTimeout('zp_loading_docs_shareware()', 1000 * 5);
+  }
+}
+
+function zp_loading_docs_apk_dl() {
+  var v_tag = 'apk_dl';
+  console.log("==[ZP]==> Checking g_docs_apk_dl ...");
+  if (g_docs_apk_dl + '' !== 'false') {
+    console.log("==[ZP]==> g_docs_apk_dl is ready to load ...");
+    for (var i = 0; i < g_docs_apk_dl.length; i++) {
+      var v_item = g_docs_apk_dl[i];
+      v_item['tag'] = v_tag;
+      g_all_docs.push(v_item);
+    }
+    zp_docs_loaded();
+  } else {
+    setTimeout('zp_loading_docs_apk_dl()', 1000 * 5);
   }
 }
 
