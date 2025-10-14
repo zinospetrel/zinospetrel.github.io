@@ -338,14 +338,20 @@ function zp_loading_docs_common() {
     for (var i = 0; i < g_docs_common.length; i++) {
       g_docs.push(g_docs_common[i]);
     }
+    zp_docs_loaded();
+  } else {
+    setTimeout('zp_loading_docs_common()', 1000 * 5);
   }
 }
 
+function zp_docs_loaded() {
+  zp_build_docs();
+  document.getElementById('wg-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
+  zp_fill_ads();
+}
+    
 function zp_wait_to_load() {
   zp_loading_docs()
-  zp_build_docs();
-  //document.getElementById('wg-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
-  //zp_fill_ads();
 }
 
 function zp_split_en_jp(p_term) {
