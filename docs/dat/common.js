@@ -1,4 +1,4 @@
-var g_docs_common = [
+g_docs_common = [
   {
     "id": 1,
     "title": "Ubuntu - Enterprise Open Source and Linux",
