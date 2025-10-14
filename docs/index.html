@@ -11,7 +11,7 @@ body {
   background: url('/img/bg-staggered.png');
 }
 
-.wg_page {
+.zp_page {
   width: 640px;
   min-height: 800px;
   margin: 10px auto 10px auto;
@@ -26,14 +26,14 @@ body {
   border-bottom: solid 1px black;
 }
 
-.wg-hd-search-form {
+.zp-hd-search-form {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: black;
   white-space: pre-wrap;
 }
 
-.wg-text {
+.zp-text {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: black;
@@ -55,7 +55,7 @@ body {
   border-image-repeat: no-repeat;
 }
 
-.wg-button {
+.zp-button {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: black;
@@ -83,7 +83,7 @@ body {
   border-image-repeat: no-repeat;
 }
 
-.wg-hd-search-results {
+.zp-hd-search-results {
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: black;
@@ -91,15 +91,15 @@ body {
   margin-top: 20px;
 }
 
-.wg-search-item {
+.zp-search-item {
   padding-bottom: 20px;
 }
 
-.wg-search-item .wg-search-item-desc {
+.zp-search-item .zp-search-item-desc {
   padding-bottom: 5px;
 }
     
-.wg-search-item .wg-search-item-title {
+.zp-search-item .zp-search-item-title {
   //padding-bottom: 5px;
   font-weight: bold;
   
@@ -121,19 +121,19 @@ body {
   border-image-repeat: no-repeat;  
 }
 
-.wg-search-item .wg-search-item-updated {
+.zp-search-item .wg-search-item-updated {
   border-top: dotted 1px gainsboro;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-.wg-ad-left {
+.zp-ad-left {
   position: absolute;
   width: 1px;
   height: 1px;
 }
 
-.wg-ad-left .wg-ad-left-inner {
+.zp-ad-left .zp-ad-left-inner {
   width: 121px;
   height: 601px;
   padding: 5px;
@@ -142,7 +142,7 @@ body {
   left: -145px;
 }
 
-.wg-ad-120x600 {
+.zp-ad-120x600 {
   width: 122px;
   height: 602px;
   border: solid 1px gainsboro;
@@ -150,14 +150,14 @@ body {
   background-color: white;
 }
 
-.wg-ad-right {
+.zp-ad-right {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
 
-.wg-ad-right .wg-ad-right-inner {
+.zp-ad-right .zp-ad-right-inner {
   width: 121px;
   height: 601px;
   padding: 5px;
@@ -166,25 +166,25 @@ body {
   left: 650px;
 }
 
-.wg-ad-left-frame {
+.zp-ad-left-frame {
   width: 120px;
   height: 600px;
   overflow: hidden;
 }
 
-.wg-ad-right-frame {
+.zp-ad-right-frame {
   width: 120px;
   height: 600px;
   overflow: hidden;
 }
 
-.wg-titlebar-cover {
+.zp-titlebar-cover {
   width: 1px;
   height: 1px;
   position: absolute;
 }
 
-.wg-titlebar span {
+.zp-titlebar span {
   padding-left: 1em;
   padding-right: 1em;
   text-align: center;
@@ -196,7 +196,7 @@ body {
   display: block;
 }
 
-.wg-titlebar-inner {
+.zp-titlebar-inner {
   width: 650px;
   height: 20px;
   position: absolute;
@@ -207,7 +207,7 @@ body {
   padding: 0px;
 }
 
-.wg-titlebar {
+.zp-titlebar {
   width: 99%;
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
@@ -316,10 +316,10 @@ function zp_fill_ads() {
   }
   
   var v_web_lnk = '/ads/' + v_id_left + '.html';
-  document.getElementById('wg-ad-left-frame').src = v_web_lnk;
+  document.getElementById('zp-ad-left-frame').src = v_web_lnk;
 
   v_web_lnk = '/ads/' + v_id_right + '.html';
-  document.getElementById('wg-ad-right-frame').src = v_web_lnk;
+  document.getElementById('zp-ad-right-frame').src = v_web_lnk;
   
   setTimeout('zp_fill_ads()', 1000 * 30);
 }
@@ -347,7 +347,7 @@ function zp_loading_docs_common() {
 
 function zp_docs_loaded() {
   zp_build_docs();
-  document.getElementById('wg-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
+  document.getElementById('zp-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
   zp_fill_ads();
 }
     
@@ -558,7 +558,7 @@ function zp_do_find(p_query, p_kind) {
 }
 
 function zp_find() {
-  var v_query = zp_to_lower(document.getElementById('wg-query').value);
+  var v_query = zp_to_lower(document.getElementById('zp-query').value);
   if (v_query.length == 0) {
     zp_show_all();
     return;
@@ -568,10 +568,10 @@ function zp_find() {
   for (var i = 0; i < v_rsl.length; i++) {
     var v_it = v_rsl[i];
     var v_no = i + 1;
-    var v_et = '<div class="wg-search-item"><div class="wg-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="wg-search-item-desc">' + v_it['description'] + '</div><div class="wg-search-item-updated">' + v_it['updated'] + '</div></div>';
+    var v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     v_html += v_et;
   }
-  document.getElementById('wg-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
+  document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
 }
 
 function zp_show_all() {
@@ -585,16 +585,16 @@ function zp_show_all() {
     var v_it = v_rsl[i];
     var v_no = i + 1;
     if (v_it['kind'] != 0) continue;
-    var v_et = '<div class="wg-search-item"><div class="wg-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="wg-search-item-desc">' + v_it['description'] + '</div><div class="wg-search-item-updated">' + v_it['updated'] + '</div></div>';
+    var v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
     v_html += v_et;
   }
-  document.getElementById('wg-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
+  document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
 }
 
 var g_used_change = '_!#$';
 
 function zp_keyword_onchange(event) {
-  var v_el = document.getElementById('wg-query');
+  var v_el = document.getElementById('zp-query');
   var v_cur_kw = zp_to_lower(v_el.value + event.key);
   if (v_cur_kw.length == 0) return true;
   if (g_used_change.length == 0 || v_cur_kw == g_used_change) {
@@ -614,12 +614,12 @@ function zp_keyword_onchange(event) {
 
 function zp_powered_google_translate() {
   if (g_lang == 'en') return '';
-  return '<div class="wg-powered-google-translate">Powered by Google Translate</div>';
+  return '<div class="zp-powered-google-translate">Powered by Google Translate</div>';
 }
   </script>
 </head>
 <body onload="zp_load()">
-  <div class="wg_page"><div class="wg-ad-left"><div class="wg-ad-left-inner"><div id="wg-ad-left" class="wg-ad-120x600"><iframe id="wg-ad-left-frame" class="wg-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="wg-ad-right"><div class="wg-ad-right-inner"><div id="wg-ad-right" class="wg-ad-120x600"><iframe class="wg-ad-right-frame" id="wg-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="wg-titlebar-cover"><div class="wg-titlebar-inner"><div class="wg-titlebar"><span>Zino's Petrel - Softwares in USB drives!</span></div></div></div><div style="height: 20px;">&nbsp;</div>==============================================	
+  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares in USB drives!</span></div></div></div><div style="height: 20px;">&nbsp;</div>==============================================	
   _____          _      ___     _           _ 	
  |_  (_)_ _  ___( )___ | _ \___| |_ _ _ ___| |	
   / /| | ' \/ _ \/(_-< |  _/ -_)  _| '_/ -_) |	
@@ -628,17 +628,14 @@ function zp_powered_google_translate() {
           Softwares in USB drives!	
      ------------------------------------	
      Legally, portable & weekly changing.	
-     -----------_         _--------------	
- [W1 ] https://tinyurl.com/zinospetrel	
- [W2*] https://tinyurl.com/zinospetrel2	
 ==============================================	
-<div class="wg-hd-search-form">
+<div class="zp-hd-search-form">
  + Keyword:
-<input id="wg-query" type="text" class="wg-text" style="width: 500px" />
+<input id="zp-query" type="text" class="zp-text" style="width: 500px" />
 
-<input type="button" class="wg-button" value="Search" style="width: 75px" onclick="zp_find();" />
+<input type="button" class="zp-button" value="Search" style="width: 75px" onclick="zp_find();" />
 </div>
-<div id="wg-hd-search-results" class="wg-hd-search-results">
+<div id="zp-hd-search-results" class="zp-hd-search-results">
 </div>
 
   
