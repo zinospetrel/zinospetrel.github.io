@@ -18,5 +18,15 @@
     "kind": 0,
     "updated": "2025.10.15",
     "price": "Without Google Play"
+  },
+  {
+    "id": 2003,
+    "title": "OnlyOffice Free for Android",
+    "description": "OnlyOffice is an online office suite integrated with a collaboration platform to manage documents, projects, team and customer relations in one place. 100% compatible with Microsoft Office formats. It works without Internet connection on Android.",
+    "link": "https://www.techspot.com/downloads/7298-onlyoffice-free.html",
+    "keyword": "apk,download,office suite,android",
+    "kind": 0,
+    "updated": "2025.10.15",
+    "price": "Without Google Play"
   }  
 ]
