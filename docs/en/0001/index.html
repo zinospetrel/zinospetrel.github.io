@@ -222,6 +222,7 @@ body {
 
   </style>
   <script>
+var g_all_tags = ['open_source'];
 var g_docs_ads = false;
 var g_docs_open_source = false;
 var g_all_docs = [];
@@ -237,6 +238,16 @@ var g_obj = '0001';
   <script src="/en/0001/dat/ads.js"></script>
   <script src="/en/0001/dat/open_source.js"></script>
   <script>
+function zp_pick_tag() {
+  var v_tag = prompt('Your tag: ');
+  if (v_tag + '' == 'undefined') return;
+  if (g_all_tags.indexOf(v_tag) < 0) {
+    alert('Tag [ ' + v_tag + ' ] is not found!');
+    return;
+  }
+  zp_tag_load(v_tag);
+}
+    
 function zp_to_lower_vi(p_str) {
   var v_upper_table = ['Á', 'À', 'Ả', 'Ã', 'Ạ', 'Ă', 'Ắ', 'Ằ', 'Ẳ', 'Ẵ', 'Ặ', 'Â', 'Ấ', 'Ầ', 'Ẩ', 'Ẫ', 'Ậ', 'Ô', 'Ố', 'Ồ', 'Ổ', 'Ỗ', 'Ơ', 'Ớ', 'Ờ', 'Ở', 'Ỡ', 'Ợ', 'Ó', 'Ò', 'Ỏ', 'Õ', 'Ọ', 'É', 'È', 'Ẻ', 'Ẽ', 'Ẹ', 'Ê', 'Ế', 'Ề', 'Ể', 'Ễ', 'Ệ', 'Ú', 'Ù', 'Ủ', 'Ũ', 'Ụ', 'Ư', 'Ứ', 'Ừ', 'Ử', 'Ữ', 'Ự', 'Í', 'Ì', 'Ỉ', 'Ĩ', 'Ị', 'Ý', 'Ỳ', 'Ỷ', 'Ỹ', 'Ỵ', 'Đ'];
   var v_lower_table = ['á', 'à', 'ả', 'ã', 'ạ', 'ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ', 'â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ', 'ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ', 'ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ', 'ó', 'ò', 'ỏ', 'õ', 'ọ', 'é', 'è', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ế', 'ề', 'ể', 'ễ', 'ệ', 'ú', 'ù', 'ủ', 'ũ', 'ụ', 'ư', 'ứ', 'ừ', 'ử', 'ữ', 'ự', 'í', 'ì', 'ỉ', 'ĩ', 'ị', 'ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ', 'đ'];
@@ -671,7 +682,7 @@ function zp_pick_language() {
   </script>
 </head>
 <body onload="zp_load()">
-  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares you may need!</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Object" onclick="zp_pick_object()" >&nbsp;<input type="button" class="zp-button" value="Tag" onclick="zp_pick_tag()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 350px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
+  <div class="zp_page"><div class="zp-ad-left"><div class="zp-ad-left-inner"><div id="zp-ad-left" class="zp-ad-120x600"><iframe id="zp-ad-left-frame" class="zp-ad-left-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-ad-right"><div class="zp-ad-right-inner"><div id="zp-ad-right" class="zp-ad-120x600"><iframe class="zp-ad-right-frame" id="zp-ad-right-frame" frameborder="0" src=""></iframe></div></div></div><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Zino's Petrel - Softwares you may need!</span></div></div></div><div style="height: 20px;">&nbsp;</div><div class="zp-toolbar"><input type="button" class="zp-button" value="Object" onclick="zp_pick_object()" >&nbsp;<input type="button" class="zp-button" value="Tag" onclick="zp_pick_tag()" >&nbsp;<input id="zp-query" type="text" class="zp-text" style="width: 330px" />&nbsp;<input type="button" class="zp-button" value="Search" onclick="zp_find()" />&nbsp;<input type="button" class="zp-button" value="Language" onclick="zp_pick_language()" ></div><div style="height: 10px"></div>==============================================	
   _____          _      ___     _           _ 	
  |_  (_)_ _  ___( )___ | _ \___| |_ _ _ ___| |	
   / /| | ' \/ _ \/(_-< |  _/ -_)  _| '_/ -_) |	
