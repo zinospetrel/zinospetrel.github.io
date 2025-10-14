@@ -249,7 +249,7 @@ var g_obj = '0001';
   <script src="/en/0001/dat/shareware.js"></script>
   <script>
 function zp_pick_tag() {
-  var v_tag = prompt('Your tag: ');
+  var v_tag = prompt('Your tag: ' + g_all_tags);
   if (v_tag + '' == 'undefined') return;
   if (g_all_tags.indexOf(v_tag) < 0) {
     alert('Tag [ ' + v_tag + ' ] is not found!');
@@ -649,10 +649,11 @@ function zp_find() {
     var v_it = v_rsl[i];
     var v_no = i + 1;
     var v_et = '';
+    var v_tag_div = '<div class="zp-search-item-tag"><span>' + v_it['tag'] + '</span></div>';
     if (v_price == '') {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div>' + v_tag_div + '</div>';
     } else {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div>' + v_tag_div + '</div>';
     }
     v_html += v_et;
   }
@@ -672,10 +673,11 @@ function zp_show_all() {
     if (v_it['kind'] != 0) continue;
     var v_price = v_it['price'];
     var v_et = '';
+    var v_tag_div = '<div class="zp-search-item-tag"><span>' + v_it['tag'] + '</span></div>';
     if (v_price == '') {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div>' + v_tag_div + '</div>';
     } else {
-      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div></div>';
+      v_et = '<div class="zp-search-item"><div class="zp-search-item-title">' + v_no + '. <a target="_blank" href="' + v_it['link'] + '">' + v_it['title'] + '</a></div><div class="zp-search-item-desc">' + v_it['description'] + '</div><div class="zp-search-item-price">' + v_price + '</div><div class="zp-search-item-updated">' + v_it['updated'] + '</div>' + v_tag_div + '</div>';
     }
     v_html += v_et;
   }
