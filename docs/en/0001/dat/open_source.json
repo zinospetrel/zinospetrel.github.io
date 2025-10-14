@@ -6,7 +6,8 @@
     "link": "https://ubuntu.com",
     "keyword": "ubuntu,linux",
     "kind": 0,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": "Free of charge"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "link": "https://www.gimp.org",
     "keyword": "gimp",
     "kind": 0,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": "Free of charge"
   },
   {
     "id": 3,
@@ -24,6 +26,7 @@
     "link": "https://www.libreoffice.org",
     "keyword": "office",
     "kind": 0,
-    "updated": "2025.10.02"
+    "updated": "2025.10.15",
+    "price": "Free of charge"
   }
 ]
