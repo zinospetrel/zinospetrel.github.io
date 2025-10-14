@@ -8,5 +8,15 @@
     "kind": 0,
     "updated": "2025.10.15",
     "price": "Without Google Play"
-  }
+  },
+  {
+    "id": 2002,
+    "title": "Chromium for Android",
+    "description": "Chromium is an open source browser project that aims to build a safer, faster, and more stable way to experience the web. In addition to Google's own Chrome browser, many other developers use Chromium's source to build their own web browsers including the likes of Microsoft Edge, Opera, Vivaldi, Brave, and many others.",
+    "link": "https://www.techspot.com/downloads/4936-chromium.html",
+    "keyword": "apk,download,browser,android",
+    "kind": 0,
+    "updated": "2025.10.15",
+    "price": "Without Google Play"
+  }  
 ]
