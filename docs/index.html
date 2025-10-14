@@ -551,7 +551,7 @@ function zp_do_find(p_query, p_kind) {
 function zp_find() {
   var v_query = zp_to_lower(document.getElementById('wg-query').value);
   if (v_query.length == 0) {
-    wg_show_all();
+    zp_show_all();
     return;
   }
   var v_rsl = zp_do_find(v_query, 0);
