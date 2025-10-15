@@ -2,7 +2,7 @@
   {
     "id": 3001,
     "title": "Wigeon#GP - Gopher Proxy via Web",
-    "description": "Wigeon#GP is a gopher client via web. It also includes a tiny web server & gopher server for providing tiny website & gopherspace which is used for introduce software or other product.",
+    "description": "Wigeon#GP is gopher proxy via web. It has a tiny web site which works like a gopher client on web. It also includes a tiny gopher server to provide a tiny gopherspace which is used for introducing software or other product.",
     "link": "https://tinyurl.com/zpp0002",
     "keyword": "zinospetrel,c language,gopher client,web server,gopher server",
     "kind": 0,
