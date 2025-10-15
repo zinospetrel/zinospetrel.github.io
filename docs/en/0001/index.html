@@ -554,7 +554,7 @@ function zp_tag_filter(p_tag_list, p_keyword) {
   }
   g_docs = v_docs;
   zp_build_docs();
-  zp_lookup(p_keyword);
+  zp_show_all(p_keyword);
 }
 
 function zp_docs_loaded() {
@@ -801,7 +801,7 @@ function zp_lookup(p_query) {
   document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
 }
 
-function zp_show_all() {
+function zp_show_all(p_with_tag = '') {
   var v_rsl = [];
   for (var i = 0; i < g_docs.length; i++) {
     if (g_docs[i]['kind'] != 0) continue;
@@ -812,6 +812,9 @@ function zp_show_all() {
     var v_it = v_rsl[i];
     var v_no = i + 1;
     if (v_it['kind'] != 0) continue;
+    if (p_with_tag != '') {
+      if ((',' + v_it['tag'] + ',').indexOf(',' + p_with_tag + ',') < 0 ) continue;
+    }
     var v_price = v_it['price'];
     var v_et = '';
     var v_tag_div = '<div class="zp-search-item-tag"><span>' + v_it['tag'] + '</span></div>';
