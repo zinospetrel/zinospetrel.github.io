@@ -808,13 +808,14 @@ function zp_show_all(p_with_keyword = '') {
     v_rsl.push(g_docs[i]);
   }
   var v_html = '';
+  var v_no = 0;
   for (var i = 0; i < v_rsl.length; i++) {
     var v_it = v_rsl[i];
-    var v_no = i + 1;
     if (v_it['kind'] != 0) continue;
     if (p_with_keyword != '') {
       if ((',' + v_it['keyword'] + ',').indexOf(',' + p_with_keyword + ',') < 0 ) continue;
     }
+    v_no += 1;
     var v_price = v_it['price'];
     var v_et = '';
     var v_tag_div = '<div class="zp-search-item-tag"><span>' + v_it['tag'] + '</span></div>';
