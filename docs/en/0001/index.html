@@ -320,6 +320,7 @@ var g_lang = 'en';
 var g_obj = '0001';
 var g_obj_codes = ['0001'];
 var g_obj_names = ['software'];
+var g_lang_all = ['en'];
 var g_tag_def = 'apk_dl';
   </script>
   <script src="/en/0001/dat/ads.js"></script>
@@ -816,13 +817,20 @@ function zp_pick_object() {
       break;
     }
   }
-  if (v_obj == '') return;
+  if (v_obj == '') {
+    alert('Object [ ' + v_obj_name + ' ] is not found!');
+    return;
+  }
   location = "https://zinospetrel.github.io/" + g_lang + '/' + v_obj + '/';
 }
 
 function zp_pick_language() {
   var v_lang = prompt("Your language? ['en'] ");
   if (v_lang + '' == 'undefined' || v_lang + '' == 'null' || v_lang + '' == '') return;
+  if (g_lang_all.indexOf(v_lang) < 0) {
+    alert("Language [ " + v_lang + " ] is not found!");
+    return;
+  }
   location = "https://zinospetrel.github.io/" + v_lang + '/' + g_obj + '/';
 }
   </script>
