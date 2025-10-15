@@ -801,7 +801,7 @@ function zp_lookup(p_query) {
   document.getElementById('zp-hd-search-results').innerHTML = v_html + zp_powered_google_translate();
 }
 
-function zp_show_all(p_with_tag = '') {
+function zp_show_all(p_with_keyword = '') {
   var v_rsl = [];
   for (var i = 0; i < g_docs.length; i++) {
     if (g_docs[i]['kind'] != 0) continue;
@@ -812,8 +812,8 @@ function zp_show_all(p_with_tag = '') {
     var v_it = v_rsl[i];
     var v_no = i + 1;
     if (v_it['kind'] != 0) continue;
-    if (p_with_tag != '') {
-      if ((',' + v_it['tag'] + ',').indexOf(',' + p_with_tag + ',') < 0 ) continue;
+    if (p_with_keyword != '') {
+      if ((',' + v_it['keyword'] + ',').indexOf(',' + p_with_keyword + ',') < 0 ) continue;
     }
     var v_price = v_it['price'];
     var v_et = '';
