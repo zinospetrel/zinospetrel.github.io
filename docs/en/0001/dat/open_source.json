@@ -28,5 +28,15 @@
     "kind": 0,
     "updated": "2025.10.15",
     "price": "Free of charge"
+  },
+  {
+    "id": 4,
+    "title": "7-Zip: file archiver with a high compression ratio",
+    "description": "7-Zip is a free and open-source file archiver, a utility used to place groups of files within compressed containers known as \"archives\". It is developed by Igor Pavlov and was first released in 1999. 7-Zip has its own archive format called 7z introduced in 2001, but can read and write several others.",
+    "link": "https://www.7-zip.org",
+    "keyword": "file archiver",
+    "kind": 0,
+    "updated": "2025.10.15",
+    "price": "Free of charge"
   }
 ]
