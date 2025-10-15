@@ -535,9 +535,31 @@ function zp_tag_load(p_tag) {
   zp_build_docs();
   zp_show_all();
 }
-    
+
+function zp_tag_filter(p_tag_list, p_keyword) {
+  var v_docs = [];
+  for (var z = 0; z < p_tag_list.length; z++) {
+    var v_tag = p_tag_list[z];
+    if (v_tag == 'ads') continue;
+    for (var i = 0; i < g_all_docs.length; i++) {
+      var v_item = g_all_docs[i];
+      if (v_item['tag'] != v_tag) continue;
+      v_docs.push(v_item);
+    }
+  }
+  for (var i = 0; i < g_all_docs.length; i++) {
+    var v_item = g_all_docs[i];
+    if (v_item['tag'] != 'ads') continue;
+    v_docs.push(v_item);
+  }
+  g_docs = v_docs;
+  zp_build_docs();
+  zp_lookup(p_keyword);
+}
+
 function zp_docs_loaded() {
-  zp_tag_load(g_tag_def);
+  zp_tag_filter(g_all_tags, 'zinospetrel');
+  //zp_tag_load(g_tag_def);
   document.getElementById('zp-query').addEventListener('keydown', (event) => { zp_keyword_onchange(event); });
   zp_fill_ads();
 }
@@ -757,6 +779,11 @@ function zp_find() {
     zp_show_all();
     return;
   }
+  zp_lookup(v_query);
+}
+    
+function zp_lookup(p_query) {
+  var v_query = p_query + '';
   var v_rsl = zp_do_find(v_query, 0);
   var v_html = '';
   for (var i = 0; i < v_rsl.length; i++) {
