@@ -1,12 +1,318 @@
 <html>
 <head>
-  <title>Zino's Petrel - Softwares in USB drives!</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Wigeon#GP-01: Gopher Proxy via Web for Android</title>
+  <style>
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  color: black;
+  background: url('/img/bg-staggered.png');
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.zp_page {
+  width: 640px;
+  min-height: 800px;
+  margin: 10px auto 10px auto;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.zp-hd-search-form {
+  font-family: monospace;
+  font-size: 12px;
+  color: black;
+  white-space: pre-wrap;
+}
+
+.zp-text {
+  font-family: monospace;
+  font-size: 12px;
+  color: black;
+  
+  margin-top: 5px;
+  
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 15px;
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 0% 10% 10%;
+  border-image-repeat: no-repeat;
+}
+
+.zp-button {
+  font-family: monospace;
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  cursor: hand;  
+
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 10px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 10% 10%;
+  border-image-repeat: no-repeat;
+}
+
+.zp-hd-search-results {
+  font-family: monospace;
+  font-size: 12px;
+  color: black;
+  white-space: pre-wrap;
+  margin-top: 20px;
+}
+
+.zp-search-item {
+  font-family: monospace;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+.zp-search-item .zp-search-item-desc {
+  font-family: monospace;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+    
+.zp-search-item .zp-search-item-title {
+  font-family: monospace;
+  font-size: 12px;
+  //padding-bottom: 5px;
+  font-weight: bold;
+  
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 5px;
+  
+  outline: dotted 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 10px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 0% 10%;
+  border-image-repeat: no-repeat;  
+}
+
+.zp-search-item .zp-search-item-updated {
+  font-family: monospace;
+  font-size: 12px;
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.zp-search-item .zp-search-item-price {
+  font-family: monospace;
+  font-size: 12px;
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: red;
+  font-weight: bold;
+}
+
+.zp-search-item .zp-search-item-tag {
+  font-family: monospace;
+  font-size: 12px;
+  border-top: dotted 1px gainsboro;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.zp-search-item .zp-search-item-tag span {
+  font-family: monospace;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  //cursor: pointer;
+  //cursor: hand;  
+
+  padding: 2px 5px 2px 5px;
+  
+  outline: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 1px;
+
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 5px;
+
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 10% 10% 10% 0%;
+  border-image-repeat: no-repeat;
+}
+    
+.zp-ad-left {
+  font-family: monospace;
+  font-size: 12px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+.zp-ad-left .zp-ad-left-inner {
+  font-family: monospace;
+  font-size: 12px;
+  width: 121px;
+  height: 601px;
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  left: -145px;
+}
+
+.zp-ad-120x600 {
+  font-family: monospace;
+  font-size: 12px;
+  width: 122px;
+  height: 602px;
+  border: solid 1px gainsboro;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.zp-ad-right {
+  font-family: monospace;
+  font-size: 12px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.zp-ad-right .zp-ad-right-inner {
+  font-family: monospace;
+  font-size: 12px;
+  width: 121px;
+  height: 601px;
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  left: 650px;
+}
+
+.zp-ad-left-frame {
+  font-family: monospace;
+  font-size: 12px;
+  width: 120px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.zp-ad-right-frame {
+  font-family: monospace;
+  font-size: 12px;
+  width: 120px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.zp-titlebar-cover {
+  font-family: monospace;
+  font-size: 12px;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
+.zp-titlebar span {
+  font-family: monospace;
+  font-size: 12px;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  color: black;
+  width: 300px;
+  display: block;
+}
+
+.zp-titlebar-inner {
+  font-family: monospace;
+  font-size: 12px;
+  width: 650px;
+  height: 20px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border-bottom: solid 1px black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.zp-titlebar {
+  font-family: monospace;
+  font-size: 12px;
+  width: 99%;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: none;
+  border-left: none;
+  border-image-source: url('/img/wtitlebar.png');
+  border-image-slice: 6 2 6 2 fill;
+  border-image-repeat: round;
+  height: 13px;
+  line-height: 13px;
+}
+
+  </style>
   <script>
 function zp_load() {
-  location = 'https://tinyurl.com/zinospetrel2';
+
 }
   </script>
 </head>
-<body onload="zp_load();">
+<body onload="zp_load()">
+  <div class="zp_page"><div class="zp-titlebar-cover"><div class="zp-titlebar-inner"><div class="zp-titlebar"><span>Wigeon#GP-01: Gopher Proxy via Web for Android</span></div></div></div>
+<img src="./qrcode_wgp-01.png" />
+    
+  </div>
 </body>
 </html>
